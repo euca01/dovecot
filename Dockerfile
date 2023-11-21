@@ -4,8 +4,13 @@ ENV TZ=Europe/Paris
 
 RUN apk add --no-cache bash dovecot dovecot-fts-solr dovecot-mysql dovecot-pigeonhole-plugin 
 
-CMD ["/usr/sbin/dovecot", "-F"]
+COPY config/ /etc/dovecot/
 
+RUN ["chmod", "+x", "/etc/dovecot/run.sh"]
+
+CMD ["/etc/dovecot/run.sh"]
+
+# IMAPS
 EXPOSE 993
-EXPOSE 24
-
+# LMTP
+EXPOSE 10100
