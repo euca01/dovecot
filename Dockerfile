@@ -2,7 +2,7 @@ FROM alpine:3.18
 
 ENV TZ=Europe/Paris
 
-RUN apk add --no-cache bash dovecot dovecot-fts-solr dovecot-mysql dovecot-pigeonhole-plugin 
+RUN apk add --no-cache bash dovecot dovecot-fts-solr dovecot-mysql dovecot-pigeonhole-plugin tzdata && ln -s /usr/share/zoneinfo/$TZ /etc/localtime
 
 COPY config/ /etc/dovecot/
 
