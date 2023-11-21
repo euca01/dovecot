@@ -9,7 +9,7 @@ RUN apk add --no-cache bash dovecot dovecot-fts-solr dovecot-mysql dovecot-pigeo
 
 COPY config/ /etc/dovecot/
 
-VOLUME ["/etc/ssl/dovecot", "/var/mail"]
+#VOLUME ["/etc/ssl/dovecot", "/var/mail"]
 
 RUN ["chmod", "+x", "/etc/dovecot/run.sh"]
 
