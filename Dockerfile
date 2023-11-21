@@ -4,8 +4,8 @@ ENV TZ=Europe/Paris
 
 RUN apk add --no-cache bash dovecot dovecot-fts-solr dovecot-mysql dovecot-pigeonhole-plugin tzdata && \ 
        ln -s /usr/share/zoneinfo/$TZ /etc/localtime && \
-       groupadd -g 1000 vmail && \
-       useradd -u 1000 -g 1000 vmail -d /var/mail && \
+       addgroup -g 1000 vmail && \
+       adduser -u 1000 -h /var/mail vmail vmail && \
        chown vmail:vmail /var/mail 
 
 COPY config/ /etc/dovecot/
