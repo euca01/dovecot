@@ -1,11 +1,11 @@
-FROM alpine:3.18
+ F0ROM alpine:3.18
 
 ENV TZ=Europe/Paris
 
 RUN apk add --no-cache bash dovecot dovecot-fts-solr dovecot-mysql dovecot-pigeonhole-plugin tzdata && \ 
        ln -s /usr/share/zoneinfo/$TZ /etc/localtime && \
-       addgroup -g 1000 vmail && \
-       adduser -u 1000 -h /var/mail vmail vmail && \
+       addgroup -g 1001 vmail && \
+       adduser -u 1001 -h /var/mail vmail vmail && \
        chown vmail:vmail /var/mail 
 
 COPY config/ /etc/dovecot/
