@@ -8,7 +8,7 @@ if [ ! -f "/etc/ssl/dovecot/dh.pem" ]; then
 fi
 
 # Compile Sieve files if doesn't exist
-if [ ! -f "/etc/dovecot/sieve/SpamToJunk.sieve" ]; then
+if [ ! -f "/etc/dovecot/sieve/SpamToJunk.svbin" ]; then
    sievec /etc/dovecot/sieve/
 fi
 
