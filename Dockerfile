@@ -19,3 +19,4 @@ CMD ["/etc/dovecot/run.sh"]
 EXPOSE 993
 # LMTP
 EXPOSE 10100
+EXPOSE 20026
