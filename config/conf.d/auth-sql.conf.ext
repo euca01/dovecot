@@ -19,7 +19,7 @@ userdb static {
   fields {
     uid = vmail
     gid = vmail
-    home = /var/mail/%{user | domain}/%{user | username}
+    home = /srv/vmail/%{user | domain}/%{user | username}
   }
 }
 
