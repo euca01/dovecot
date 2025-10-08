@@ -9,7 +9,7 @@ if [ -f /etc/dovecot/conf.d/auth-sql.conf.ext ]; then
   -e "s|DB_USER|${DB_USER}|g" \
   -e "s|DB_PASSWORD|${DB_PASS}|g" \
   -e "s|DB_DATABASE|${DB_NAME}|g" \
-    /etc/dovecot/dovecot-sql.conf.ext
+    /etc/dovecot/conf.d/auth-sql.conf.ext
 fi
 
 # Generate dh.pem if missing
