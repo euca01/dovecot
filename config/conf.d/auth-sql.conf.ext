@@ -2,12 +2,41 @@
 #
 # <doc/wiki/AuthDatabase.SQL.txt>
 
+sql_driver = mysql
+
+# The mysqld.sock socket may be in different locations in different systems.
+mysql DB_HOST {
+  user = DB_USER
+  password = DB_PASSWORD
+  dbname = DB_DATABASE
+
+}
+
 passdb sql {
-  driver = sql
+  default_fields {
+    password_scheme = ARGON2ID
+  }
+  query = SELECT email as user, password FROM virtual_users WHERE email='%{user}';
+}
+userdb static {
+  fields {
+    uid = vmail
+    gid = vmail
+    home = /var/mail/%{user | domain}/%{user | username}
+  }
+}
+
+
+
+
+
+
+####passdb sql {
+####  driver = sql
 
   # Path for SQL configuration file, see example-config/dovecot-sql.conf.ext
-  args = /etc/dovecot/dovecot-sql.conf.ext
-}
+#### args = /etc/dovecot/dovecot-sql.conf.ext
+#####}
 
 # "prefetch" user database means that the passdb already provided the
 # needed information and there's no need to do a separate userdb lookup.
@@ -24,7 +53,7 @@ passdb sql {
 # If you don't have any user-specific settings, you can avoid the user_query
 # by using userdb static instead of userdb sql, for example:
 # <doc/wiki/UserDatabase.Static.txt>
-userdb sql {
-  driver = static
-  args = uid=vmail gid=vmail home=/var/mail/%{domain}/%{user | username }
-}
+####userdb sql {
+####  driver = static
+####  args = uid=vmail gid=vmail home=/var/mail/%{domain}/%{user | username }
+####}

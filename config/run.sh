@@ -4,7 +4,11 @@ set -e
 
 # Update SQL connection string from environment
 if [ -f /etc/dovecot/dovecot-sql.conf.ext ]; then
-  sed -i "s|#connect =.*|connect = host=${DB_HOST} dbname=${DB_DATABASE} user=${DB_USER} password=${DB_PASSWORD}|" \
+  sed -i 
+  -e "s|DB_HOST|${DB_HOST}|g" \
+  -e "s|DB_USER|${DB_USER}|g" \
+  -e "s|DB_PASSWORD|${DB_PASS}|g" \
+  -e "s|DB_DATABASE|${DB_NAME}|g" \
     /etc/dovecot/dovecot-sql.conf.ext
 fi
 
