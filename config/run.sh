@@ -3,7 +3,7 @@
 set -e
 
 # Update SQL connection string from environment
-if [ -f /etc/dovecot/dovecot-sql.conf.ext ]; then
+if [ -f /etc/dovecot/conf.d/auth-sql.conf.ext ]; then
   sed -i \
   -e "s|DB_HOST|${DB_HOST}|g" \
   -e "s|DB_USER|${DB_USER}|g" \
