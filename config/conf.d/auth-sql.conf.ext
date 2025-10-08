@@ -2,7 +2,7 @@
 #
 # <doc/wiki/AuthDatabase.SQL.txt>
 
-passdb {
+passdb sql_passdb {
   driver = sql
 
   # Path for SQL configuration file, see example-config/dovecot-sql.conf.ext
