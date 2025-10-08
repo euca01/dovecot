@@ -13,9 +13,6 @@ mysql DB_HOST {
 }
 
 passdb sql {
-  default_fields {
-    password_scheme = ARGON2ID
-  }
   query = SELECT email as user, password FROM virtual_users WHERE email='%{user}';
 }
 userdb static {
