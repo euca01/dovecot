@@ -7,8 +7,8 @@ if [ -f /etc/dovecot/conf.d/auth-sql.conf.ext ]; then
   sed -i \
   -e "s|DB_HOST|${DB_HOST}|g" \
   -e "s|DB_USER|${DB_USER}|g" \
-  -e "s|DB_PASSWORD|${DB_PASS}|g" \
-  -e "s|DB_DATABASE|${DB_NAME}|g" \
+  -e "s|DB_PASSWORD|${DB_PASSWORD}|g" \
+  -e "s|DB_DATABASE|${DB_DATABASE}|g" \
     /etc/dovecot/conf.d/auth-sql.conf.ext
 fi
 
