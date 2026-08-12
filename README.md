@@ -1,3 +1,2 @@
-# dovecot
-
-v2.4.1-r2
+# dovecot v2.4.4-r0
+Alpine v3.24.1
